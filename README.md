@@ -13,10 +13,11 @@ $ pip install pipenv
 ```
 $ pipenv install
 ```
-5. Migrate the database, then run on your localhost:
+5. Migrate the database, create superuser, then run on your localhost:
 ```
 $ python manage.py makemigrations
 $ python manage.py migrate
+$ python manage.py createsuperuser
 $ python manage.py runserver
 
 Django version 3.2.6, using settings 'config.settings'

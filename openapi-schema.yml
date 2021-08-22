@@ -1,0 +1,2488 @@
+openapi: 3.0.2
+info:
+  title: ''
+  version: ''
+paths:
+  /api/v1/event/:
+    get:
+      operationId: listEvents
+      description: Menampilkan daftar dan membuat event, serta menampilkan statistik
+        dari event.
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EventBase'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createEvent
+      description: Menampilkan daftar dan membuat event, serta menampilkan statistik
+        dari event.
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EventBase'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/EventBase'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/EventBase'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EventBase'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/committee/{id}/:
+    get:
+      operationId: retrieveEvent
+      description: Menampilkan daftar event pada Committee tertentu
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createEvent
+      description: Menampilkan daftar event pada Committee tertentu
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/jury/{id}/:
+    get:
+      operationId: retrieveEvent
+      description: Menampilkan daftar event pada juri tertentu
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createEvent
+      description: Menampilkan daftar event pada juri tertentu
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{id}/:
+    get:
+      operationId: retrieveEvent
+      description: Menampilkan detai event, update, dan delete event
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateEvent
+      description: Menampilkan detai event, update, dan delete event
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateEvent
+      description: Menampilkan detai event, update, dan delete event
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Event'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Event'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Event'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyEvent
+      description: Menampilkan detai event, update, dan delete event
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this event.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/committee/:
+    get:
+      operationId: listCommittees
+      description: Menampilkan daftar dan membuat akun committee
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Committee'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createCommittee
+      description: Menampilkan daftar dan membuat akun committee
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Committee'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Committee'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Committee'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Committee'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/committee/{id}/:
+    get:
+      operationId: retrieveCommittee
+      description: Menampilkan detail, update, dan delete committe tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this committee.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommitteeDetail'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateCommittee
+      description: Menampilkan detail, update, dan delete committe tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this committee.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitteeDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CommitteeDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CommitteeDetail'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommitteeDetail'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateCommittee
+      description: Menampilkan detail, update, dan delete committe tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this committee.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitteeDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CommitteeDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CommitteeDetail'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CommitteeDetail'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyCommittee
+      description: Menampilkan detail, update, dan delete committe tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this committee.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/jury/:
+    get:
+      operationId: listJurys
+      description: Menampilkan daftar dan membuat akun jury
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Jury'
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createJury
+      description: Menampilkan daftar dan membuat akun jury
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Jury'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Jury'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Jury'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Jury'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/jury/{id}/:
+    get:
+      operationId: retrieveJury
+      description: Menampilkan detail, update, dan delete jury tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this jury.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JuryDetail'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateJury
+      description: Menampilkan detail, update, dan delete jury tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this jury.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JuryDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JuryDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JuryDetail'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JuryDetail'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateJury
+      description: Menampilkan detail, update, dan delete jury tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this jury.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JuryDetail'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/JuryDetail'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/JuryDetail'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JuryDetail'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyJury
+      description: Menampilkan detail, update, dan delete jury tertentu
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this jury.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/participants/:
+    get:
+      operationId: listParticipants
+      description: "Menampilkan daftar peserta yang diurutkan berdasarkan total_score.\
+        \ \nPeserta yang ditampilkan berdasarkan id dari event yang diberikan"
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Participants'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/jury/{jid}/participants/{id}/:
+    get:
+      operationId: retrieveParticipants
+      description: 'Mengupdate, menampilkan detail, dan menghapus participants.
+
+        Hal ini hanya bisa dilakukan oleh jury yang sudah diassgin sebelumnya'
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: jid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this participants.
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParticipantsJury'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateParticipants
+      description: 'Mengupdate, menampilkan detail, dan menghapus participants.
+
+        Hal ini hanya bisa dilakukan oleh jury yang sudah diassgin sebelumnya'
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: jid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this participants.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParticipantsJury'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ParticipantsJury'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ParticipantsJury'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParticipantsJury'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateParticipants
+      description: 'Mengupdate, menampilkan detail, dan menghapus participants.
+
+        Hal ini hanya bisa dilakukan oleh jury yang sudah diassgin sebelumnya'
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: jid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this participants.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParticipantsJury'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ParticipantsJury'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ParticipantsJury'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParticipantsJury'
+          description: ''
+      tags:
+      - api
+    delete:
+      operationId: destroyParticipants
+      description: 'Mengupdate, menampilkan detail, dan menghapus participants.
+
+        Hal ini hanya bisa dilakukan oleh jury yang sudah diassgin sebelumnya'
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: jid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        description: A unique integer value identifying this participants.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/logout/:
+    get:
+      operationId: listLogouts
+      description: 'Calls Django logout method and delete the Token object
+
+        assigned to the current User object.
+
+
+        Accepts/Returns nothing.'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items: {}
+          description: ''
+      tags:
+      - api
+    post:
+      operationId: createLogout
+      description: 'Calls Django logout method and delete the Token object
+
+        assigned to the current User object.
+
+
+        Accepts/Returns nothing.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema: {}
+          application/x-www-form-urlencoded:
+            schema: {}
+          multipart/form-data:
+            schema: {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema: {}
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/user/:
+    get:
+      operationId: retrieveUserDetails
+      description: 'Reads and updates UserModel fields
+
+        Accepts GET, PUT, PATCH methods.
+
+
+        Default accepted fields: username, first_name, last_name
+
+        Default display fields: pk, username, email, first_name, last_name
+
+        Read-only fields: pk, email
+
+
+        Returns UserModel fields.'
+      parameters: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetails'
+          description: ''
+      tags:
+      - api
+    put:
+      operationId: updateUserDetails
+      description: 'Reads and updates UserModel fields
+
+        Accepts GET, PUT, PATCH methods.
+
+
+        Default accepted fields: username, first_name, last_name
+
+        Default display fields: pk, username, email, first_name, last_name
+
+        Read-only fields: pk, email
+
+
+        Returns UserModel fields.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetails'
+          description: ''
+      tags:
+      - api
+    patch:
+      operationId: partialUpdateUserDetails
+      description: 'Reads and updates UserModel fields
+
+        Accepts GET, PUT, PATCH methods.
+
+
+        Default accepted fields: username, first_name, last_name
+
+        Default display fields: pk, username, email, first_name, last_name
+
+        Read-only fields: pk, email
+
+
+        Returns UserModel fields.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserDetails'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserDetails'
+          description: ''
+      tags:
+      - api
+  /api/v1/event/{eid}/jury/{jid}/participants/:
+    post:
+      operationId: createParticipantsCreateJury
+      description: "Membuat data participants sekaligus mengassign participants tsb\
+        \ ke jury tertentu. \nNamun, untuk field score_field tidak bisa diisi saat\
+        \ pembuatan,\nfield tsb. hanya bisa diupdate oleh jury yang bersangkutan"
+      parameters:
+      - name: eid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      - name: jid
+        in: path
+        required: true
+        description: ''
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParticipantsCreateJury'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ParticipantsCreateJury'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ParticipantsCreateJury'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ParticipantsCreateJury'
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/password/reset/:
+    post:
+      operationId: createPasswordReset
+      description: 'Calls Django Auth PasswordResetForm save method.
+
+
+        Accepts the following POST parameters: email
+
+        Returns the success/fail message.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordReset'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordReset'
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/password/reset/confirm/:
+    post:
+      operationId: createPasswordResetConfirm
+      description: "Password reset e-mail link is confirmed, therefore\nthis resets\
+        \ the user's password.\n\nAccepts the following POST parameters: token, uid,\n\
+        \    new_password1, new_password2\nReturns the success/fail message."
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordResetConfirm'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordResetConfirm'
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/login/:
+    post:
+      operationId: createLogin
+      description: 'Check the credentials and return the REST Token
+
+        if the credentials are valid and authenticated.
+
+        Calls Django Auth login method to register User ID
+
+        in Django session framework
+
+
+        Accept the following POST parameters: username, password
+
+        Return the REST Framework Token Object''s key.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Login'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Login'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Login'
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/password/change/:
+    post:
+      operationId: createPasswordChange
+      description: 'Calls Django Auth SetPasswordForm save method.
+
+
+        Accepts the following POST parameters: new_password1, new_password2
+
+        Returns the success/fail message.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PasswordChange'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PasswordChange'
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/token/verify/:
+    post:
+      operationId: createTokenVerify
+      description: 'Takes a token and indicates if it is valid.  This view provides
+        no
+
+        information about a token''s fitness for a particular use.'
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenVerify'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenVerify'
+          description: ''
+      tags:
+      - api
+  /api/v1/dj-rest-auth/token/refresh/:
+    post:
+      operationId: createCookieTokenRefresh
+      description: ''
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CookieTokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CookieTokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/CookieTokenRefresh'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CookieTokenRefresh'
+          description: ''
+      tags:
+      - api
+components:
+  schemas:
+    EventBase:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 512
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        start_time:
+          type: string
+        end_time:
+          type: string
+        max_participants:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        num_jury:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        num_committee:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        event_level:
+          type: string
+          maxLength: 512
+        panitia:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+              user:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 150
+                  last_name:
+                    type: string
+                    maxLength: 150
+                  phone_number:
+                    type: string
+                    nullable: true
+                    maxLength: 20
+                  address:
+                    type: string
+                    nullable: true
+                    maxLength: 1000
+                  city:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  state:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  photo_url:
+                    type: string
+                    format: uri
+                    nullable: true
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                      d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                      d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                      0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\z"
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+\z
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                  is_committee:
+                    type: boolean
+                    readOnly: true
+                  is_jury:
+                    type: boolean
+                    readOnly: true
+                  is_staff:
+                    type: boolean
+                    readOnly: true
+                  password2:
+                    type: string
+                    writeOnly: true
+                  password:
+                    type: string
+                    writeOnly: true
+                required:
+                - username
+                - email
+                - password2
+                - password
+                writeOnly: true
+            required:
+            - user
+          readOnly: true
+        juri:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              participants:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    code:
+                      type: string
+                      maxLength: 20
+                    full_name:
+                      type: string
+                      maxLength: 512
+                    age:
+                      type: integer
+                      maximum: 2147483647
+                      minimum: -2147483648
+                      nullable: true
+                    email:
+                      type: string
+                      format: email
+                      nullable: true
+                      maxLength: 254
+                    institute:
+                      type: string
+                      maxLength: 512
+                    total_score:
+                      type: number
+                      nullable: true
+                    score_field:
+                      type: object
+                      readOnly: true
+                    photo_url:
+                      type: string
+                      format: uri
+                      nullable: true
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                        d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\\
+                        d?|[1-9]\\d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1\
+                        -\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1\
+                        -\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\z"
+                    created_at:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                    updated_at:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                  required:
+                  - code
+                  - full_name
+                  - institute
+                readOnly: true
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+              user:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 150
+                  last_name:
+                    type: string
+                    maxLength: 150
+                  phone_number:
+                    type: string
+                    nullable: true
+                    maxLength: 20
+                  address:
+                    type: string
+                    nullable: true
+                    maxLength: 1000
+                  city:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  state:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  photo_url:
+                    type: string
+                    format: uri
+                    nullable: true
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                      d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                      d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                      0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\z"
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+\z
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                  is_committee:
+                    type: boolean
+                    readOnly: true
+                  is_jury:
+                    type: boolean
+                    readOnly: true
+                  is_staff:
+                    type: boolean
+                    readOnly: true
+                  password2:
+                    type: string
+                    writeOnly: true
+                  password:
+                    type: string
+                    writeOnly: true
+                required:
+                - username
+                - email
+                - password2
+                - password
+                writeOnly: true
+            required:
+            - user
+          readOnly: true
+        peserta:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              code:
+                type: string
+                maxLength: 20
+              full_name:
+                type: string
+                maxLength: 512
+              age:
+                type: integer
+                maximum: 2147483647
+                minimum: -2147483648
+                nullable: true
+              email:
+                type: string
+                format: email
+                nullable: true
+                maxLength: 254
+              institute:
+                type: string
+                maxLength: 512
+              total_score:
+                type: number
+                nullable: true
+              score_field:
+                type: object
+                readOnly: true
+              photo_url:
+                type: string
+                format: uri
+                nullable: true
+                maxLength: 200
+                pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                  d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                  d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                  0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                  .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\\
+                  d{2,5})?(?:[/?#][^\\s]*)?\\z"
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+            required:
+            - code
+            - full_name
+            - institute
+          readOnly: true
+      required:
+      - title
+      - start_date
+      - end_date
+      - start_time
+      - end_time
+      - max_participants
+      - num_jury
+      - num_committee
+      - event_level
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 512
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        start_time:
+          type: string
+        end_time:
+          type: string
+        max_participants:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        num_jury:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        num_committee:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        event_level:
+          type: string
+          maxLength: 512
+        panitia:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+              user:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 150
+                  last_name:
+                    type: string
+                    maxLength: 150
+                  phone_number:
+                    type: string
+                    nullable: true
+                    maxLength: 20
+                  address:
+                    type: string
+                    nullable: true
+                    maxLength: 1000
+                  city:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  state:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  photo_url:
+                    type: string
+                    format: uri
+                    nullable: true
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                      d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                      d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                      0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\z"
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+\z
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                  is_committee:
+                    type: boolean
+                    readOnly: true
+                  is_jury:
+                    type: boolean
+                    readOnly: true
+                  is_staff:
+                    type: boolean
+                    readOnly: true
+                  password2:
+                    type: string
+                    writeOnly: true
+                  password:
+                    type: string
+                    writeOnly: true
+                required:
+                - username
+                - email
+                - password2
+                - password
+                writeOnly: true
+            required:
+            - user
+          readOnly: true
+        juri:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              participants:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      readOnly: true
+                    code:
+                      type: string
+                      maxLength: 20
+                    full_name:
+                      type: string
+                      maxLength: 512
+                    age:
+                      type: integer
+                      maximum: 2147483647
+                      minimum: -2147483648
+                      nullable: true
+                    email:
+                      type: string
+                      format: email
+                      nullable: true
+                      maxLength: 254
+                    institute:
+                      type: string
+                      maxLength: 512
+                    total_score:
+                      type: number
+                      nullable: true
+                    score_field:
+                      type: object
+                      readOnly: true
+                    photo_url:
+                      type: string
+                      format: uri
+                      nullable: true
+                      maxLength: 200
+                      pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                        d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\\
+                        d?|[1-9]\\d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1\
+                        -\uFFFF0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1\
+                        -\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                        .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\z"
+                    created_at:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                    updated_at:
+                      type: string
+                      format: date-time
+                      readOnly: true
+                  required:
+                  - code
+                  - full_name
+                  - institute
+                readOnly: true
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+              user:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    readOnly: true
+                  first_name:
+                    type: string
+                    maxLength: 150
+                  last_name:
+                    type: string
+                    maxLength: 150
+                  phone_number:
+                    type: string
+                    nullable: true
+                    maxLength: 20
+                  address:
+                    type: string
+                    nullable: true
+                    maxLength: 1000
+                  city:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  state:
+                    type: string
+                    nullable: true
+                    maxLength: 512
+                  photo_url:
+                    type: string
+                    format: uri
+                    nullable: true
+                    maxLength: 200
+                    pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                      d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                      d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                      0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                      .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\\
+                      .?|localhost))(?::\\d{2,5})?(?:[/?#][^\\s]*)?\\z"
+                  username:
+                    type: string
+                    description: Required. 150 characters or fewer. Letters, digits
+                      and @/./+/-/_ only.
+                    pattern: ^[\w.@+-]+\z
+                    maxLength: 150
+                  email:
+                    type: string
+                    format: email
+                  is_committee:
+                    type: boolean
+                    readOnly: true
+                  is_jury:
+                    type: boolean
+                    readOnly: true
+                  is_staff:
+                    type: boolean
+                    readOnly: true
+                  password2:
+                    type: string
+                    writeOnly: true
+                  password:
+                    type: string
+                    writeOnly: true
+                required:
+                - username
+                - email
+                - password2
+                - password
+                writeOnly: true
+            required:
+            - user
+          readOnly: true
+        peserta:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              code:
+                type: string
+                maxLength: 20
+              full_name:
+                type: string
+                maxLength: 512
+              age:
+                type: integer
+                maximum: 2147483647
+                minimum: -2147483648
+                nullable: true
+              email:
+                type: string
+                format: email
+                nullable: true
+                maxLength: 254
+              institute:
+                type: string
+                maxLength: 512
+              total_score:
+                type: number
+                nullable: true
+              score_field:
+                type: object
+                readOnly: true
+              photo_url:
+                type: string
+                format: uri
+                nullable: true
+                maxLength: 200
+                pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                  d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                  d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                  0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                  .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\\
+                  d{2,5})?(?:[/?#][^\\s]*)?\\z"
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+            required:
+            - code
+            - full_name
+            - institute
+          readOnly: true
+      required:
+      - title
+      - start_date
+      - end_date
+      - start_time
+      - end_time
+      - max_participants
+      - num_jury
+      - num_committee
+      - event_level
+    Committee:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            phone_number:
+              type: string
+              nullable: true
+              maxLength: 20
+            address:
+              type: string
+              nullable: true
+              maxLength: 1000
+            city:
+              type: string
+              nullable: true
+              maxLength: 512
+            state:
+              type: string
+              nullable: true
+              maxLength: 512
+            photo_url:
+              type: string
+              format: uri
+              nullable: true
+              maxLength: 200
+              pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+                -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+                s]*)?\\z"
+            username:
+              type: string
+              description: Required. 150 characters or fewer. Letters, digits and
+                @/./+/-/_ only.
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            email:
+              type: string
+              format: email
+            is_committee:
+              type: boolean
+              readOnly: true
+            is_jury:
+              type: boolean
+              readOnly: true
+            is_staff:
+              type: boolean
+              readOnly: true
+            password2:
+              type: string
+              writeOnly: true
+            password:
+              type: string
+              writeOnly: true
+          required:
+          - username
+          - email
+          - password2
+          - password
+          writeOnly: true
+      required:
+      - user
+    CommitteeDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            phone_number:
+              type: string
+              nullable: true
+              maxLength: 20
+            address:
+              type: string
+              nullable: true
+              maxLength: 1000
+            city:
+              type: string
+              nullable: true
+              maxLength: 512
+            state:
+              type: string
+              nullable: true
+              maxLength: 512
+            photo_url:
+              type: string
+              format: uri
+              nullable: true
+              maxLength: 200
+              pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+                -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+                s]*)?\\z"
+            username:
+              type: string
+              description: Required. 150 characters or fewer. Letters, digits and
+                @/./+/-/_ only.
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            email:
+              type: string
+              format: email
+            is_committee:
+              type: boolean
+              readOnly: true
+            is_jury:
+              type: boolean
+              readOnly: true
+            is_staff:
+              type: boolean
+              readOnly: true
+            password2:
+              type: string
+              writeOnly: true
+            password:
+              type: string
+              writeOnly: true
+          required:
+          - username
+          - email
+          - password2
+          - password
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    Jury:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        participants:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              code:
+                type: string
+                maxLength: 20
+              full_name:
+                type: string
+                maxLength: 512
+              age:
+                type: integer
+                maximum: 2147483647
+                minimum: -2147483648
+                nullable: true
+              email:
+                type: string
+                format: email
+                nullable: true
+                maxLength: 254
+              institute:
+                type: string
+                maxLength: 512
+              total_score:
+                type: number
+                nullable: true
+              score_field:
+                type: object
+                readOnly: true
+              photo_url:
+                type: string
+                format: uri
+                nullable: true
+                maxLength: 200
+                pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                  d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                  d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                  0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                  .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\\
+                  d{2,5})?(?:[/?#][^\\s]*)?\\z"
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+            required:
+            - code
+            - full_name
+            - institute
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            phone_number:
+              type: string
+              nullable: true
+              maxLength: 20
+            address:
+              type: string
+              nullable: true
+              maxLength: 1000
+            city:
+              type: string
+              nullable: true
+              maxLength: 512
+            state:
+              type: string
+              nullable: true
+              maxLength: 512
+            photo_url:
+              type: string
+              format: uri
+              nullable: true
+              maxLength: 200
+              pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+                -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+                s]*)?\\z"
+            username:
+              type: string
+              description: Required. 150 characters or fewer. Letters, digits and
+                @/./+/-/_ only.
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            email:
+              type: string
+              format: email
+            is_committee:
+              type: boolean
+              readOnly: true
+            is_jury:
+              type: boolean
+              readOnly: true
+            is_staff:
+              type: boolean
+              readOnly: true
+            password2:
+              type: string
+              writeOnly: true
+            password:
+              type: string
+              writeOnly: true
+          required:
+          - username
+          - email
+          - password2
+          - password
+          writeOnly: true
+      required:
+      - user
+    JuryDetail:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        participants:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                readOnly: true
+              code:
+                type: string
+                maxLength: 20
+              full_name:
+                type: string
+                maxLength: 512
+              age:
+                type: integer
+                maximum: 2147483647
+                minimum: -2147483648
+                nullable: true
+              email:
+                type: string
+                format: email
+                nullable: true
+                maxLength: 254
+              institute:
+                type: string
+                maxLength: 512
+              total_score:
+                type: number
+                nullable: true
+              score_field:
+                type: object
+                readOnly: true
+              photo_url:
+                type: string
+                format: uri
+                nullable: true
+                maxLength: 200
+                pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                  d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                  d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF\
+                  0-9-]{0,61}[a-z\xA1-\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\\
+                  .(?!-)(?:[a-z\xA1-\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\\
+                  d{2,5})?(?:[/?#][^\\s]*)?\\z"
+              created_at:
+                type: string
+                format: date-time
+                readOnly: true
+              updated_at:
+                type: string
+                format: date-time
+                readOnly: true
+            required:
+            - code
+            - full_name
+            - institute
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        user:
+          type: object
+          properties:
+            id:
+              type: integer
+              readOnly: true
+            first_name:
+              type: string
+              maxLength: 150
+            last_name:
+              type: string
+              maxLength: 150
+            phone_number:
+              type: string
+              nullable: true
+              maxLength: 20
+            address:
+              type: string
+              nullable: true
+              maxLength: 1000
+            city:
+              type: string
+              nullable: true
+              maxLength: 512
+            state:
+              type: string
+              nullable: true
+              maxLength: 512
+            photo_url:
+              type: string
+              format: uri
+              nullable: true
+              maxLength: 200
+              pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+                d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\\
+                d?)){3}|\\[[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+                -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+                -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+                s]*)?\\z"
+            username:
+              type: string
+              description: Required. 150 characters or fewer. Letters, digits and
+                @/./+/-/_ only.
+              pattern: ^[\w.@+-]+\z
+              maxLength: 150
+            email:
+              type: string
+              format: email
+            is_committee:
+              type: boolean
+              readOnly: true
+            is_jury:
+              type: boolean
+              readOnly: true
+            is_staff:
+              type: boolean
+              readOnly: true
+            password2:
+              type: string
+              writeOnly: true
+            password:
+              type: string
+              writeOnly: true
+          required:
+          - username
+          - email
+          - password2
+          - password
+          readOnly: true
+    Participants:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+          maxLength: 20
+        full_name:
+          type: string
+          maxLength: 512
+        age:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        email:
+          type: string
+          format: email
+          nullable: true
+          maxLength: 254
+        institute:
+          type: string
+          maxLength: 512
+        total_score:
+          type: number
+          nullable: true
+        score_field:
+          type: object
+          readOnly: true
+        photo_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+          pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+            d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\d?)){3}|\\\
+            [[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+            -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+            -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+            s]*)?\\z"
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - code
+      - full_name
+      - institute
+    ParticipantsJury:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+          maxLength: 20
+        full_name:
+          type: string
+          maxLength: 512
+        age:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        email:
+          type: string
+          format: email
+          nullable: true
+          maxLength: 254
+        institute:
+          type: string
+          maxLength: 512
+        total_score:
+          type: number
+          nullable: true
+        score_field:
+          type: object
+        photo_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+          pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+            d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\d?)){3}|\\\
+            [[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+            -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+            -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+            s]*)?\\z"
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - code
+      - full_name
+      - institute
+      - score_field
+    UserDetails:
+      type: object
+      properties:
+        pk:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+\z
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          readOnly: true
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+      required:
+      - username
+    ParticipantsCreateJury:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+          maxLength: 20
+        full_name:
+          type: string
+          maxLength: 512
+        age:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        email:
+          type: string
+          format: email
+          nullable: true
+          maxLength: 254
+        institute:
+          type: string
+          maxLength: 512
+        total_score:
+          type: number
+          nullable: true
+        score_field:
+          type: object
+          readOnly: true
+        photo_url:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+          pattern: "^(?:[a-z0-9.+-]*)://(?:[^\\s:@/]+(?::[^\\s:@/]*)?@)?(?:(?:0|25[0-5]|2[0-4]\\\
+            d|1\\d?\\d?|[1-9]\\d?)(?:\\.(?:0|25[0-5]|2[0-4]\\d|1\\d?\\d?|[1-9]\\d?)){3}|\\\
+            [[0-9a-f:.]+\\]|([a-z\xA1-\uFFFF0-9](?:[a-z\xA1-\uFFFF0-9-]{0,61}[a-z\xA1\
+            -\uFFFF0-9])?(?:\\.(?!-)[a-z\xA1-\uFFFF0-9-]{1,63}(?<!-))*\\.(?!-)(?:[a-z\xA1\
+            -\uFFFF-]{2,63}|xn--[a-z0-9]{1,59})(?<!-)\\.?|localhost))(?::\\d{2,5})?(?:[/?#][^\\\
+            s]*)?\\z"
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - code
+      - full_name
+      - institute
+    PasswordReset:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+      - email
+    PasswordResetConfirm:
+      type: object
+      properties:
+        new_password1:
+          type: string
+          maxLength: 128
+        new_password2:
+          type: string
+          maxLength: 128
+        uid:
+          type: string
+        token:
+          type: string
+      required:
+      - new_password1
+      - new_password2
+      - uid
+      - token
+    Login:
+      type: object
+      properties:
+        username:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+      required:
+      - password
+    PasswordChange:
+      type: object
+      properties:
+        new_password1:
+          type: string
+          maxLength: 128
+        new_password2:
+          type: string
+          maxLength: 128
+      required:
+      - new_password1
+      - new_password2
+    TokenVerify:
+      type: object
+      properties:
+        token:
+          type: string
+      required:
+      - token
+    CookieTokenRefresh:
+      type: object
+      properties:
+        refresh:
+          type: string
+          description: WIll override cookie.
+        access:
+          type: string
+          readOnly: true

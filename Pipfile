@@ -8,6 +8,11 @@ django = "*"
 djangorestframework = "*"
 django-environ = "*"
 psycopg2-binary = "==2.9"
+djangorestframework-simplejwt = "*"
+dj-rest-auth = "*"
+pyyaml = "*"
+uritemplate = "*"
+drf-yasg = "*"
 
 [dev-packages]
 

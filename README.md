@@ -1,4 +1,4 @@
-# Tsukuyomi
+# ScoreMaster
 A backend for RPLGDC lab project using DjangoRESTframework.
 
 ## How to
